@@ -17,22 +17,33 @@
             <button id="analyzeBtn">Analyze</button>
         </div>
         
-        <!-- This container will show the loading spinner and the final report -->
         <div id="resultsContainer">
             <div id="loader" class="hidden"></div>
+            <!-- NEW: Container for action buttons -->
+            <div id="actionsContainer" class="hidden">
+                <button id="copyBtn">📋 Copy to Clipboard</button>
+                <button id="downloadBtn">⬇️ Download as Markdown</button>
+            </div>
             <div id="report"></div>
         </div>
     </main>
 
     <script>
-        // Get references to all the interactive elements on the page
+        // Get references to all elements
         const analyzeBtn = document.getElementById('analyzeBtn');
         const usernameInput = document.getElementById('usernameInput');
         const resultsContainer = document.getElementById('resultsContainer');
         const loader = document.getElementById('loader');
         const reportDiv = document.getElementById('report');
+        // NEW: Get references to new buttons
+        const actionsContainer = document.getElementById('actionsContainer');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
 
-        // This function will run when the "Analyze" button is clicked
+        // NEW: A variable to store the raw markdown report
+        let rawMarkdownReport = '';
+        let currentUsername = ''; // To store the username for the filename
+
         const handleAnalysis = async () => {
             const username = usernameInput.value.trim();
             if (!username) {
@@ -42,12 +53,15 @@
 
             // --- 1. PREPARE UI FOR LOADING ---
             loader.classList.remove('hidden');
-            reportDiv.innerHTML = ''; // Clear any previous report
+            actionsContainer.classList.add('hidden'); // Hide buttons during load
+            reportDiv.innerHTML = '';
+            rawMarkdownReport = ''; // Clear old markdown
+            currentUsername = username; // Store username for download
 
             try {
-                // --- 2. CALL YOUR BACKEND API ---
-                
-                const apiUrl = `https://profile-pilot-seven.vercel.app/api/index?username=${username}`; 
+                // --- 2. CALL BACKEND API ---
+                // IMPORTANT: Ensure this URL is correct!
+                const apiUrl = `https://profile-pilot-seven.vercel.app/api/index?username=${username}`;
                 
                 const response = await fetch(apiUrl);
                 
@@ -56,30 +70,56 @@
                     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
                 }
 
+                // NEW: Expecting { report_html, report_md } from the backend now
                 const data = await response.json();
                 
-                // --- 3. DISPLAY THE REPORT ---
-                reportDiv.innerHTML = data.report;
+                // --- 3. DISPLAY THE REPORT & STORE DATA ---
+                rawMarkdownReport = data.report_md; // Store the raw markdown
+                reportDiv.innerHTML = data.report_html; // Display the formatted HTML
+                actionsContainer.classList.remove('hidden'); // Show the action buttons
 
             } catch (error) {
-                // Show a user-friendly error message if anything goes wrong
-                reportDiv.innerHTML = `<p class="error">Failed to generate report. Please check the username and try again. <br><small>Details: ${error.message}</small></p>`;
+                reportDiv.innerHTML = `<p class="error">Failed to generate report. <br><small>Details: ${error.message}</small></p>`;
             } finally {
-                // --- 4. HIDE THE LOADER ---
-                // This 'finally' block ensures the loader is hidden, whether the call succeeded or failed.
                 loader.classList.add('hidden');
             }
         };
 
-        // Add event listeners
+        // --- NEW: JAVASCRIPT FOR ACTION BUTTONS ---
+
+        // Function to copy text to the clipboard
+        const copyToClipboard = () => {
+            if (!rawMarkdownReport) return;
+            navigator.clipboard.writeText(rawMarkdownReport).then(() => {
+                copyBtn.innerText = '✅ Copied!';
+                setTimeout(() => { copyBtn.innerText = '📋 Copy to Clipboard'; }, 2000); // Reset button text after 2 seconds
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        };
+
+        // Function to download the report as a .md file
+        const downloadAsMarkdown = () => {
+            if (!rawMarkdownReport) return;
+            const blob = new Blob([rawMarkdownReport], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentUsername}_profile_pilot_report.md`; // e.g., torvalds_profile_pilot_report.md
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        };
+
+        // --- Add event listeners ---
         analyzeBtn.addEventListener('click', handleAnalysis);
-        
-        
         usernameInput.addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') {
-                handleAnalysis();
-            }
+            if (event.key === 'Enter') { handleAnalysis(); }
         });
+        // NEW: Add listeners for the new buttons
+        copyBtn.addEventListener('click', copyToClipboard);
+        downloadBtn.addEventListener('click', downloadAsMarkdown);
     </script>
 </body>
 </html>

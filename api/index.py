@@ -61,7 +61,7 @@ class handler(BaseHTTPRequestHandler):
             genai.configure(api_key=gemini_api_key)
             
             user_prompt = f"""
-            Analyze the following GitHub profile data. Do your best to provide a helpful and detailed summary based on what is available.
+            Analyze the following GitHub profile data. Do your best to provide a helpful and detailed summary based on what is available. You can also check contributions they made in organizations!
 
             Data:
             ```json
@@ -89,7 +89,7 @@ class handler(BaseHTTPRequestHandler):
 
             """
             
-            model = genai.GenerativeModel('gemini-2.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-pro')
             response = model.generate_content(user_prompt)
             
             # --- 5. VALIDATE RESPONSE AND PREPARE JSON---

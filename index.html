@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile-Pilot | AI GitHub Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Profile-Pilot ✈️</h1>
+        <p>Enter a GitHub username to generate an AI-powered analysis.</p>
+    </header>
+    <main>
+        <div class="input-form">
+            <input type="text" id="usernameInput" placeholder="e.g., torvalds, gaeron">
+            <button id="analyzeBtn">Analyze</button>
+        </div>
+        
+        <!-- This container will show the loading spinner and the final report -->
+        <div id="resultsContainer">
+            <div id="loader" class="hidden"></div>
+            <div id="report"></div>
+        </div>
+    </main>
+
+    <script>
+        // Get references to all the interactive elements on the page
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const usernameInput = document.getElementById('usernameInput');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const loader = document.getElementById('loader');
+        const reportDiv = document.getElementById('report');
+
+        // This function will run when the "Analyze" button is clicked
+        const handleAnalysis = async () => {
+            const username = usernameInput.value.trim();
+            if (!username) {
+                alert('Please enter a GitHub username.');
+                return;
+            }
+
+            // --- 1. PREPARE UI FOR LOADING ---
+            loader.classList.remove('hidden');
+            reportDiv.innerHTML = ''; // Clear any previous report
+
+            try {
+                // --- 2. CALL YOUR BACKEND API ---
+                // IMPORTANT: Replace the URL with your actual Vercel project URL.
+                const apiUrl = `https://YOUR_VERCEL_PROJECT_URL.vercel.app/api/index?username=${username}`;
+                
+                const response = await fetch(apiUrl);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // --- 3. DISPLAY THE REPORT ---
+                reportDiv.innerHTML = data.report;
+
+            } catch (error) {
+                // Show a user-friendly error message if anything goes wrong
+                reportDiv.innerHTML = `<p class="error">Failed to generate report. Please check the username and try again. <br><small>Details: ${error.message}</small></p>`;
+            } finally {
+                // --- 4. HIDE THE LOADER ---
+                // This 'finally' block ensures the loader is hidden, whether the call succeeded or failed.
+                loader.classList.add('hidden');
+            }
+        };
+
+        // Add event listeners
+        analyzeBtn.addEventListener('click', handleAnalysis);
+        
+        
+        usernameInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                handleAnalysis();
+            }
+        });
+    </script>
+</body>
+</html>

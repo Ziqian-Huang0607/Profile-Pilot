@@ -76,10 +76,17 @@ class handler(BaseHTTPRequestHandler):
             A bulleted list of probable technical skills.
 
             ### 🚀 Notable Projects
-            A summary of 2-3 of the most interesting projects.
+            A summary of all projects listed and explained one by one
 
             ### 🧑‍💻 Developer Archetype
             Assign a fun but insightful "developer archetype" and a one-sentence justification.
+
+            ### 👀 MBTI Personality
+            Based on their work and profile geuss their personality(MBTI)
+            
+            ### 📧 Contact
+            Summarize ways to contact them
+
             """
             
             model = genai.GenerativeModel('gemini-2.5-flash')

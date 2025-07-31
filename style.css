@@ -119,3 +119,33 @@ h1 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+/* Styling for the container holding the action buttons */
+#actionsContainer {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: 15px;
+}
+
+/* Common styling for action buttons */
+#actionsContainer button {
+    background-color: #f6f8fa;
+    color: #24292e;
+    border: 1px solid rgba(27,31,35,0.15);
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect for action buttons */
+#actionsContainer button:hover {
+    background-color: #e1e4e8;
+    border-color: rgba(27,31,35,0.2);
+}

@@ -67,7 +67,7 @@ flowchart TD
     end
 
     subgraph "Cloud Backend"
-        B[Vercel Serverless Function <br> (api/index.py)]
+        B["Vercel Serverless Function <br> (api/index.py)"]
     end
 
     subgraph "Third-Party APIs"

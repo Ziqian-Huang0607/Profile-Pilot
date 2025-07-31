@@ -89,7 +89,7 @@ class handler(BaseHTTPRequestHandler):
 
             """
             
-            model = genai.GenerativeModel('gemini-2.5-pro')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             response = model.generate_content(user_prompt)
             
             # --- 5. VALIDATE RESPONSE AND PREPARE JSON---

@@ -1,9 +1,6 @@
 
 # Profile-Pilot ✈️
 
-<a href="https://github.com/developers" target="_blank" rel="noopener noreferrer">
-  <img src="https://raw.githubusercontent.com/github/dev-program/master/public/program-logo-for-dark-bg.png" alt="GitHub Developer Program Member" width="250" align="right">
-</a>
 
 **An AI-powered web application that generates a comprehensive, human-readable analysis of any GitHub user's profile.**
 

@@ -136,4 +136,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Contribution
 
-This project was built to serve the community, if you have any ideas and improvements you can submit a PR or a issue! I would like to hear from the community! Thanks!
+This project was built to serve the community, if you have any ideas and improvements you can submit a PR or a issue! I would love to hear from the community! Thanks!

@@ -19,7 +19,6 @@
         
         <div id="resultsContainer">
             <div id="loader" class="hidden"></div>
-            <!-- NEW: Container for action buttons -->
             <div id="actionsContainer" class="hidden">
                 <button id="copyBtn">📋 Copy to Clipboard</button>
                 <button id="downloadBtn">⬇️ Download as Markdown</button>
@@ -29,21 +28,21 @@
     </main>
 
     <script>
-        // Get references to all elements
+        // Get references to all the interactive elements on the page
         const analyzeBtn = document.getElementById('analyzeBtn');
         const usernameInput = document.getElementById('usernameInput');
         const resultsContainer = document.getElementById('resultsContainer');
         const loader = document.getElementById('loader');
         const reportDiv = document.getElementById('report');
-        // NEW: Get references to new buttons
         const actionsContainer = document.getElementById('actionsContainer');
         const copyBtn = document.getElementById('copyBtn');
         const downloadBtn = document.getElementById('downloadBtn');
 
-        // NEW: A variable to store the raw markdown report
+        // State variables to hold data between actions
         let rawMarkdownReport = '';
-        let currentUsername = ''; // To store the username for the filename
+        let currentUsername = '';
 
+        // Main function to handle the analysis process
         const handleAnalysis = async () => {
             const username = usernameInput.value.trim();
             if (!username) {
@@ -51,73 +50,95 @@
                 return;
             }
 
-            // --- 1. PREPARE UI FOR LOADING ---
-            loader.classList.remove('hidden');
-            actionsContainer.classList.add('hidden'); // Hide buttons during load
-            reportDiv.innerHTML = '';
-            rawMarkdownReport = ''; // Clear old markdown
-            currentUsername = username; // Store username for download
+            // --- 1. PREPARE UI FOR A NEW ANALYSIS ---
+            loader.classList.remove('hidden'); // Show spinner
+            actionsContainer.classList.add('hidden'); // Hide buttons
+            reportDiv.innerHTML = ''; // Clear previous report
+            rawMarkdownReport = ''; // Clear old markdown data
+            currentUsername = username; // Store username for download filename
 
             try {
-                // --- 2. CALL BACKEND API ---
-                // IMPORTANT: Ensure this URL is correct!
+                // --- 2. CALL THE BACKEND API ---
+                // Ensure this URL points to YOUR Vercel deployment
                 const apiUrl = `https://profile-pilot-seven.vercel.app/api/index?username=${username}`;
                 
                 const response = await fetch(apiUrl);
                 
+                // The 'await response.json()' part is important. It reads the entire
+                // response body and parses it as JSON.
+                const data = await response.json();
+
+                // Check if the response from the server was successful.
+                // A successful response has a status code in the 200-299 range.
                 if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+                    // If the server responded with an error status (like 500),
+                    // the 'data' object will likely contain an 'error' key.
+                    // We throw an error here to jump to the 'catch' block below.
+                    throw new Error(data.error || `Request failed with status ${response.status}`);
+                }
+                
+                // --- 3. VALIDATE AND DISPLAY THE REPORT ---
+                // This is the crucial defensive check. We verify that the 'data' object
+                // we received is valid and contains the 'report_html' key we need.
+                if (data && data.report_html) {
+                    // Success! The data is in the expected format.
+                    rawMarkdownReport = data.report_md;      // Store the raw markdown
+                    reportDiv.innerHTML = data.report_html;   // Display the formatted HTML
+                    actionsContainer.classList.remove('hidden'); // Show the action buttons
+                } else {
+                    // The server responded with status 200 (OK), but the data object
+                    // was empty or malformed. We throw a clear error for this case.
+                    throw new Error('The server returned an invalid or empty response.');
                 }
 
-                // NEW: Expecting { report_html, report_md } from the backend now
-                const data = await response.json();
-                
-                // --- 3. DISPLAY THE REPORT & STORE DATA ---
-                rawMarkdownReport = data.report_md; // Store the raw markdown
-                reportDiv.innerHTML = data.report_html; // Display the formatted HTML
-                actionsContainer.classList.remove('hidden'); // Show the action buttons
-
             } catch (error) {
+                // This 'catch' block handles ALL errors: network failures, server errors,
+                // and the validation errors we threw ourselves.
                 reportDiv.innerHTML = `<p class="error">Failed to generate report. <br><small>Details: ${error.message}</small></p>`;
             } finally {
+                // This 'finally' block always runs, ensuring the loader is hidden
+                // whether the analysis succeeded or failed.
                 loader.classList.add('hidden');
             }
         };
 
-        // --- NEW: JAVASCRIPT FOR ACTION BUTTONS ---
+        // --- JAVASCRIPT FOR ACTION BUTTONS ---
 
-        // Function to copy text to the clipboard
+        // Function to copy the raw markdown report to the clipboard
         const copyToClipboard = () => {
             if (!rawMarkdownReport) return;
             navigator.clipboard.writeText(rawMarkdownReport).then(() => {
                 copyBtn.innerText = '✅ Copied!';
-                setTimeout(() => { copyBtn.innerText = '📋 Copy to Clipboard'; }, 2000); // Reset button text after 2 seconds
+                setTimeout(() => { copyBtn.innerText = '📋 Copy to Clipboard'; }, 2000);
             }).catch(err => {
                 console.error('Failed to copy text: ', err);
+                alert('Could not copy text.');
             });
         };
 
-        // Function to download the report as a .md file
+        // Function to trigger a download of the report as a .md file
         const downloadAsMarkdown = () => {
             if (!rawMarkdownReport) return;
             const blob = new Blob([rawMarkdownReport], { type: 'text/markdown' });
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
+            const a = document.createElement('a'); // Create a temporary link element
             a.href = url;
-            a.download = `${currentUsername}_profile_pilot_report.md`; // e.g., torvalds_profile_pilot_report.md
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            a.download = `${currentUsername}_profile_pilot_report.md`; // Set the filename
+            document.body.appendChild(a); // Add the link to the page
+            a.click(); // Programmatically click the link to start the download
+            document.body.removeChild(a); // Clean up by removing the link
+            URL.revokeObjectURL(url); // Free up memory
         };
 
-        // --- Add event listeners ---
+        // --- Add event listeners to trigger the functions ---
         analyzeBtn.addEventListener('click', handleAnalysis);
+        
         usernameInput.addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') { handleAnalysis(); }
+            if (event.key === 'Enter') {
+                handleAnalysis();
+            }
         });
-        // NEW: Add listeners for the new buttons
+        
         copyBtn.addEventListener('click', copyToClipboard);
         downloadBtn.addEventListener('click', downloadAsMarkdown);
     </script>

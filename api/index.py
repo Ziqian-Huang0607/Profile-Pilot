@@ -73,7 +73,7 @@ class handler(BaseHTTPRequestHandler):
             Based on everything, assign a fun but insightful "developer archetype" (e.g., 'The Full-Stack Architect', 'The Data Whisperer', 'The Open-Source Toolsmith'). Provide a one-sentence justification.
             """
             
-            model = genai.GenerativeModel('gemini-pro')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             response = model.generate_content(prompt)
             markdown_report = response.text
             html_report = markdown2.markdown(markdown_report) # Convert Markdown to HTML

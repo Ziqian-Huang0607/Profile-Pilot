@@ -1,0 +1,4 @@
+# api/requirements.txt
+requests
+google-generativeai
+markdown2

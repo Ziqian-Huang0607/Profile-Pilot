@@ -98,7 +98,7 @@ To run this project on your local machine:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YOUR-USERNAME/profile-pilot.git
+    git clone https://github.com/Ziqian-Huang0607/profile-pilot.git
     cd profile-pilot
     ```
 

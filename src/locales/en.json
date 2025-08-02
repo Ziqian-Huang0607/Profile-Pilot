@@ -1,0 +1,15 @@
+{
+  "title": "Profile-Pilot ✈️",
+  "subtitle": "Enter a GitHub username to generate an AI-powered analysis.",
+  "placeholder": "e.g., torvalds, gaeron",
+  "analyze": "Analyze",
+  "copy": "📋 Copy to Clipboard",
+  "copied": "✅ Copied!",
+  "download": "⬇️ Download as Markdown",
+  "error": "Failed to generate report.",
+  "details": "Details",
+  "empty_input": "Please enter a GitHub username.",
+  "toggle_dark": "Toggle dark mode",
+  "language_label": "Language",
+  "footer": {"credit": "Made with ❤️ using Vue 3 + Vite + TailwindCSS"}
+}

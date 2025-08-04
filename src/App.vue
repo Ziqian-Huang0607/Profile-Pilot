@@ -22,7 +22,9 @@ import Report from './components/Report.vue';
 import DarkLangToggle from './components/DarkLangToggle.vue';
 import Footer from './components/Footer.vue';
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
+const { locale } = useI18n();
 const loading = ref(false);
 const reportHtml = ref('');
 const reportMarkdown = ref('');
@@ -40,8 +42,9 @@ const analyzeUsername = async (username) => {
   downloadFilename.value = username;
 
   try {
-    const response = await fetch(`https://profile-pilot-seven.vercel.app/api/index?username=${username}`);
+    const lang = locale.value; // 👈 'en' o 'es'
 
+    const response = await fetch(`https://profile-pilot-seven.vercel.app/api/index?username=${username}&lang=${lang}`);
     if (!response.ok) {
       let errorMsg = 'Server error';
       try {

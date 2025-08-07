@@ -1,17 +1,21 @@
 <template>
-  <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white p-4">
-    <DarkLangToggle class="mb-4" />
-    <Header />
-    <main class="max-w-3xl mx-auto">
-      <InputForm @analyze="analyzeUsername" />
-      <Loader :loading="loading" />
-      <Actions :visible="showActions" :content="reportMarkdown" :filename="downloadFilename" />
-      <div v-if="errorMessage" class="text-red-600 my-4">{{ errorMessage }}</div>
-      <Report v-if="reportMarkdown" :reportMd="reportMarkdown" />
-    </main>
+  <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <div class="p-4 flex-grow">
+      <DarkLangToggle class="mb-4" />
+      <Header />
+      <main class="max-w-3xl mx-auto">
+        <InputForm @analyze="analyzeUsername" />
+        <Loader :loading="loading" />
+        <Actions :visible="showActions" :content="reportMarkdown" :filename="downloadFilename" />
+        <div v-if="errorMessage" class="text-red-600 my-4">{{ errorMessage }}</div>
+        <Report v-if="reportMarkdown" :reportMd="reportMarkdown" />
+      </main>
+    </div>
     <Footer />
   </div>
 </template>
+
+
 
 <script setup>
 import Header from './components/Header.vue';
@@ -44,7 +48,7 @@ const analyzeUsername = async (username) => {
   try {
     const lang = locale.value; // 👈 'en' o 'es'
 
-    const response = await fetch(`https://profile-pilot-seven.vercel.app/api/index?username=${username}&lang=${lang}`);
+    const response = await fetch(`http://localhost:8000/api/index?username=${username}&lang=${lang}`);
     if (!response.ok) {
       let errorMsg = 'Server error';
       try {

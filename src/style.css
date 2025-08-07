@@ -4,7 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html,
+body,
+#app {
+  height: 100%;
+}
 /* Font & smooth transitions */
 body {
   @apply font-sans text-base leading-relaxed transition-colors duration-300 ease-in-out;

@@ -1,0 +1,23 @@
+Analiza los siguientes datos del perfil de GitHub. Haz un resumen útil y detallado basado en lo que esté disponible. También puedes considerar sus contribuciones en organizaciones.
+
+Datos:
+{{data}}
+
+Estructura del Informe:
+### 📊 Resumen General
+Un breve párrafo sobre el probable rol y experiencia del desarrollador.
+
+### 💻 Habilidades Técnicas Clave
+Una lista con viñetas de las habilidades técnicas más probables.
+
+### 🚀 Proyectos Notables
+Un resumen de todos los proyectos listados, explicados uno por uno.
+
+### 🧑‍💻 Arquetipo del Desarrollador
+Asigna un "arquetipo de desarrollador" divertido pero preciso y una justificación en una frase.
+
+### 👀 Personalidad MBTI
+Basado en su trabajo y perfil, intenta adivinar su personalidad (MBTI).
+
+### 📧 Contacto
+Resume las formas de contactarlo.

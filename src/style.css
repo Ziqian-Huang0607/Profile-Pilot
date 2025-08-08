@@ -1,0 +1,42 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#app {
+  height: 100%;
+}
+/* Font & smooth transitions */
+body {
+  @apply font-sans text-base leading-relaxed transition-colors duration-300 ease-in-out;
+}
+
+/* Dark mode smooth background transitions */
+html.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+/* Scrollbar custom (compatible con navegadores modernos) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+/* Button focus ring */
+button:focus {
+  @apply outline-none ring-2 ring-offset-2 ring-blue-500;
+}
+
+/* Transitions */
+input, button, textarea {
+  @apply transition-all duration-200 ease-in-out;
+}

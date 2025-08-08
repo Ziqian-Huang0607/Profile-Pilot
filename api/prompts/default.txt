@@ -1,0 +1,23 @@
+Analyze the following GitHub profile data. Provide a helpful and detailed summary based on what is available. You can also consider contributions they made in organizations.
+
+Data:
+{{data}}
+
+Report Structure:
+### 📊 Overall Summary
+A brief, one-paragraph summary of the developer's likely role and expertise.
+
+### 💻 Key Technical Skills
+A bulleted list of probable technical skills.
+
+### 🚀 Notable Projects
+A summary of all listed projects, explained one by one.
+
+### 🧑‍💻 Developer Archetype
+Assign a fun but insightful "developer archetype" and a one-sentence justification.
+
+### 👀 MBTI Personality
+Based on their work and profile, guess their personality (MBTI).
+
+### 📧 Contact
+Summarize ways to contact them.

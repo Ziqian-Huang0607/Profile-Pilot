@@ -48,7 +48,7 @@ const analyzeUsername = async (username) => {
   try {
     const lang = locale.value; // 👈 'en' o 'es'
 
-    const response = await fetch(`http://localhost:8000/api/index?username=${username}&lang=${lang}`);
+    const response = await fetch(`https://profile-pilot-seven.vercel.app/api/index?username=${username}&lang=${lang}`);
     if (!response.ok) {
       let errorMsg = 'Server error';
       try {

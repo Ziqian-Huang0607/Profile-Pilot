@@ -1,0 +1,15 @@
+{
+  "title": "Profile-Pilot ✈️",
+  "subtitle": "Enter a GitHub username to generate an AI-powered analysis.",
+  "placeholder": "e.g., torvalds, gaeron",
+  "analyze": "Analyze",
+  "copy": "📋 Copy to Clipboard",
+  "copied": "✅ Copied!",
+  "download": "⬇️ Download as Markdown",
+  "error": "Failed to generate report.",
+  "details": "Details",
+  "empty_input": "Please enter a GitHub username.",
+  "toggle_dark": "Toggle dark mode",
+  "language_label": "Language",
+  "footer": {"credit": "© {year} Made with Vue 3 + Vite + TailwindCSS.<br>Original project by <a href='https://github.com/Ziqian-Huang0607' target='_blank' rel='noopener noreferrer'>Ziqian Huang</a>. Modified and developed by <a href='https://blackeagledhs.github.io/portfolio-vue/' target='_blank' rel='noopener noreferrer'>Mauro Vicens</a>."}
+}

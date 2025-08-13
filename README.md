@@ -7,7 +7,7 @@
 This tool is designed for recruiters, hiring managers, and team leads to quickly understand a developer's skills, focus areas, and project highlights without manually digging through their entire profile.
 
 
-### [**➡️ View Live Demo**](https://ziqian-huang0607.github.io/Profile-Pilot/)
+### [**➡️ View Live Demo**](https://profile-pilot-seven.vercel.app/)
 
 ---
 

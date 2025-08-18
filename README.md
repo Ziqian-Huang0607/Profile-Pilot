@@ -7,7 +7,7 @@
 
 ## 🔗 Live Demo | Demo en Vivo
 
-**Frontend:** https://profile-pilot.vercel.app
+**Frontend:** https://profile-pilot-seven.vercel.app
 **Backend:** Hosted on Northflank
 
 ---

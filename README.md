@@ -10,7 +10,7 @@
 
 **Frontend:** https://profile-pilot-seven.vercel.app
 
-**Backend:** Hosted on Northflank
+**Backend:** Hosted on Northflank(Vercel for online demo)
 
 ---
 
@@ -60,7 +60,7 @@ Profile-Pilot ha sido actualizado de un sitio estático en HTML/JS a una aplicac
 - Google Gemini API
 - GitHub API
 - Libraries: `google-generativeai`, `requests`, `markdown2`
-- **Hosting:** Backend hosted on **Northflank**
+- **Hosting:** Backend hosted on **Northflank(Vercel)**
 
 **Hosting Frontend:**
 - **Vercel**

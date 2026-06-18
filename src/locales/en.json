@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": {
+      "gradient": "Analyze any GitHub profile",
+      "plain": "with AI-powered insights"
+    },
+    "subtitle": "Enter a GitHub username to generate a comprehensive report powered by Google Gemini AI — skills, projects, archetype, and more."
+  },
+  "search": {
+    "placeholder": "e.g., torvalds, gaearon, sindresorhus",
+    "button": "Analyze",
+    "analyzing": "Analyzing..."
+  },
+  "steps": [
+    {
+      "label": "Fetching profile...",
+      "description": "Retrieving profile information from GitHub..."
+    },
+    {
+      "label": "Analyzing repositories...",
+      "description": "Processing repository data and language statistics..."
+    },
+    {
+      "label": "Generating AI report...",
+      "description": "Crafting insights with Google Gemini AI..."
+    },
+    {
+      "label": "Building dashboard...",
+      "description": "Assembling your complete profile report..."
+    }
+  ],
+  "errors": {
+    "invalid_username": {
+      "title": "User not found",
+      "message": "We couldn't find a GitHub user with that username. Please check the spelling and try again."
+    },
+    "private_profile": {
+      "title": "Profile is private",
+      "message": "This user's profile data is not publicly accessible. Try a different username."
+    },
+    "rate_limit": {
+      "title": "Rate limit reached",
+      "message": "We've hit GitHub's API rate limit. Please wait a few minutes and try again."
+    },
+    "generation_failed": {
+      "title": "Report generation failed",
+      "message": "We couldn't generate the AI report. Please try again in a moment."
+    },
+    "network_error": {
+      "title": "Connection error",
+      "message": "Unable to connect. Please check your internet connection and try again."
+    },
+    "generic": {
+      "title": "Something went wrong",
+      "message": "An unexpected error occurred. Please try again."
+    },
+    "dismiss": "Dismiss error"
+  },
+  "demo": {
+    "label": "See what you get",
+    "heading": "A complete developer profile report",
+    "description": "Every report includes a detailed AI-generated analysis with skills breakdown, notable projects, and a developer archetype."
+  },
+  "features": {
+    "label": "What's inside",
+    "heading": "Every report includes",
+    "description": "Our AI-powered analysis generates a comprehensive report with these key sections.",
+    "0": {
+      "title": "Overall Summary",
+      "description": "A concise AI-generated overview of the developer's experience, focus areas, and contributions."
+    },
+    "1": {
+      "title": "Key Technical Skills",
+      "description": "Top programming languages and frameworks with visual bar charts and percentage breakdowns."
+    },
+    "2": {
+      "title": "Notable Projects",
+      "description": "Highlighted repositories with star counts, descriptions, and primary language identification."
+    },
+    "3": {
+      "title": "Developer Archetype",
+      "description": "AI-categorized developer type — from 'The Foundational Architect' to 'The Community Builder.'"
+    }
+  },
+  "social": {
+    "stars": "50+",
+    "forks": "10+",
+    "tagline": "Open Source",
+    "subtitle": "Free to use"
+  },
+  "title": "Profile-Pilot",
+  "subtitle": "Enter a GitHub username to generate an AI-powered analysis.",
+  "placeholder": "e.g., torvalds, gaeron",
+  "analyze": "Analyze",
+  "copy": "Copy to Clipboard",
+  "copied": "Copied!",
+  "download": "Download as Markdown",
+  "error": "Failed to generate report.",
+  "details": "Details",
+  "empty_input": "Please enter a GitHub username.",
+  "toggle_dark": "Toggle dark mode",
+  "language_label": "Language",
+  "footer": {
+    "credit": "&copy; {year} Made with Vue 3 + Vite + TailwindCSS.<br>Original project and 2026.6.18 rework by <a href='https://github.com/Ziqian-Huang0607' target='_blank' rel='noopener noreferrer'>Ziqian Huang</a>. Modified and Spanish Support by <a href='https://blackeagledhs.github.io/portfolio-vue/' target='_blank' rel='noopener noreferrer'>Mauro Vicens</a>."
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": {
+      "gradient": "Analiza cualquier perfil de GitHub",
+      "plain": "con insights impulsados por IA"
+    },
+    "subtitle": "Ingresa un nombre de usuario de GitHub para generar un informe completo potenciado por Google Gemini AI — habilidades, proyectos, arquetipo y mas."
+  },
+  "search": {
+    "placeholder": "p. ej., torvalds, gaearon, sindresorhus",
+    "button": "Analizar",
+    "analyzing": "Analizando..."
+  },
+  "steps": [
+    {
+      "label": "Obteniendo perfil...",
+      "description": "Recuperando informacion del perfil desde GitHub..."
+    },
+    {
+      "label": "Analizando repositorios...",
+      "description": "Procesando datos de repositorios y estadisticas de lenguajes..."
+    },
+    {
+      "label": "Generando informe con IA...",
+      "description": "Creando insights con Google Gemini AI..."
+    },
+    {
+      "label": "Construyendo panel...",
+      "description": "Ensamblando tu informe de perfil completo..."
+    }
+  ],
+  "errors": {
+    "invalid_username": {
+      "title": "Usuario no encontrado",
+      "message": "No pudimos encontrar un usuario de GitHub con ese nombre. Verifica la ortografia e intentalo de nuevo."
+    },
+    "private_profile": {
+      "title": "El perfil es privado",
+      "message": "Los datos de perfil de este usuario no son accesibles publicamente. Intenta con otro nombre de usuario."
+    },
+    "rate_limit": {
+      "title": "Limite de peticiones alcanzado",
+      "message": "Hemos alcanzado el limite de la API de GitHub. Espera unos minutos e intentalo de nuevo."
+    },
+    "generation_failed": {
+      "title": "Error al generar el informe",
+      "message": "No pudimos generar el informe con IA. Por favor, intentalo de nuevo en un momento."
+    },
+    "network_error": {
+      "title": "Error de conexion",
+      "message": "No se pudo conectar. Verifica tu conexion a internet e intentalo de nuevo."
+    },
+    "generic": {
+      "title": "Algo salio mal",
+      "message": "Ocurrio un error inesperado. Por favor, intentalo de nuevo."
+    },
+    "dismiss": "Cerrar error"
+  },
+  "demo": {
+    "label": "Mira lo que obtienes",
+    "heading": "Un informe completo del perfil de desarrollador",
+    "description": "Cada informe incluye un analisis detallado generado por IA con desglose de habilidades, proyectos destacados y un arquetipo de desarrollador."
+  },
+  "features": {
+    "label": "Que incluye",
+    "heading": "Cada informe incluye",
+    "description": "Nuestro analisis impulsado por IA genera un informe completo con estas secciones clave.",
+    "0": {
+      "title": "Resumen General",
+      "description": "Una vision general concisa generada por IA sobre la experiencia del desarrollador, areas de enfoque y contribuciones."
+    },
+    "1": {
+      "title": "Habilidades Tecnicas Clave",
+      "description": "Principales lenguajes y frameworks con graficos de barras visuales y desglose por porcentajes."
+    },
+    "2": {
+      "title": "Proyectos Destacados",
+      "description": "Repositorios destacados con conteo de estrellas, descripciones e identificacion del lenguaje principal."
+    },
+    "3": {
+      "title": "Arquetipo de Desarrollador",
+      "description": "Tipo de desarrollador categorizado por IA — desde 'El Arquitecto Fundacional' hasta 'El Constructor Comunitario.'"
+    }
+  },
+  "social": {
+    "stars": "50+",
+    "forks": "10+",
+    "tagline": "Codigo Abierto",
+    "subtitle": "Gratuito"
+  },
+  "title": "Profile-Pilot",
+  "subtitle": "Ingresa un usuario de GitHub para generar un analisis con IA.",
+  "placeholder": "por ejemplo, torvalds, gaeron",
+  "analyze": "Analizar",
+  "copy": "Copiar al portapapeles",
+  "copied": "Copiado!",
+  "download": "Descargar como Markdown",
+  "error": "Error al generar el informe.",
+  "details": "Detalles",
+  "empty_input": "Por favor, ingresa un nombre de usuario de GitHub.",
+  "toggle_dark": "Cambiar modo oscuro",
+  "language_label": "Idioma",
+  "footer": {
+    "credit": "&copy; {year} Hecho con Vue 3 + Vite + TailwindCSS.<br>Proyecto original de <a href='https://github.com/Ziqian-Huang0607' target='_blank' rel='noopener noreferrer'>Ziqian Huang</a>. Modificado y desarrollado por <a href='https://blackeagledhs.github.io/portfolio-vue/' target='_blank' rel='noopener noreferrer'>Mauro Vicens</a>."
+  }
+}

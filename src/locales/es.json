@@ -101,6 +101,6 @@
   "toggle_dark": "Cambiar modo oscuro",
   "language_label": "Idioma",
   "footer": {
-    "credit": "&copy; {year} Hecho con Vue 3 + Vite + TailwindCSS.<br>Proyecto original de <a href='https://github.com/Ziqian-Huang0607' target='_blank' rel='noopener noreferrer'>Ziqian Huang</a>. Modificado y desarrollado por <a href='https://blackeagledhs.github.io/portfolio-vue/' target='_blank' rel='noopener noreferrer'>Mauro Vicens</a>."
+    "credit": "&copy; {year} Hecho con Vue 3 + Vite + TailwindCSS.<br>Proyecto original y reelaboración del 18.6.2026 por <a href='https://github.com/Ziqian-Huang0607' target='_blank' rel='noopener noreferrer'>Ziqian Huang</a>. Modificado y con soporte en español por <a href='https://blackeagledhs.github.io/portfolio-vue/' target='_blank' rel='noopener noreferrer'>Mauro Vicens</a>."
   }
 }

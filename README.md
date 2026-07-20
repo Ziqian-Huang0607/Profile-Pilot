@@ -3,7 +3,7 @@
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Ziqian-Huang0607/Profile-Pilot)
 
-** - WAIC 2026 X SuperBrain AI Incubator enlisted project**
+**- WAIC 2026 X SuperBrain AI Incubator enlisted project**
 
 **An AI-powered web application that generates a comprehensive, human-readable analysis of any GitHub user's profile, now with a modern Vue 3 frontend.**
 

@@ -1,5 +1,5 @@
-# Profile-Pilot ✈️
-<img width="2048" height="2048" alt="Minimalist airplane icon logo" src="https://github.com/user-attachments/assets/07cf862a-c3b4-48fe-ae48-2a658630798a" />
+# Profile-Pilot <img width="48" height="48" alt="Minimalist airplane icon logo" src="https://github.com/user-attachments/assets/07cf862a-c3b4-48fe-ae48-2a658630798a" />
+
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Ziqian-Huang0607/Profile-Pilot)
 

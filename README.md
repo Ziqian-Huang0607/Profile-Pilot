@@ -1,6 +1,9 @@
 # Profile-Pilot ✈️
+<img width="2048" height="2048" alt="Minimalist airplane icon logo" src="https://github.com/user-attachments/assets/07cf862a-c3b4-48fe-ae48-2a658630798a" />
+
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Ziqian-Huang0607/Profile-Pilot)
 
+**WAIC 2026 X SuperBrain AI Incubator enlisted project**
 **An AI-powered web application that generates a comprehensive, human-readable analysis of any GitHub user's profile, now with a modern Vue 3 frontend.**
 **Aplicación web potenciada con IA que genera un análisis completo y legible de cualquier perfil de GitHub, ahora con un frontend moderno en Vue 3.**
 
